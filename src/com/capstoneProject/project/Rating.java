@@ -1,4 +1,4 @@
-package com.capstoneProject.step1;
+package com.capstoneProject.project;
 
 public class Rating implements Comparable<Rating> {
     private String item;

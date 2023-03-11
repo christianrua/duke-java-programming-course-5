@@ -1,11 +1,10 @@
-package com.capstoneProject.step1;
+package com.capstoneProject.project;
 
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
-import java.util.stream.Collectors;
 
 import org.apache.commons.csv.*;
 
@@ -42,13 +41,13 @@ public class FirstRatings {
     }
 
     public  HashMap<String, Integer>  getMaxValuesFromDict(HashMap<String, Integer> dict, Integer maxValue){
-        System.out.println("From getMaxValuesFromDict");
+        //System.out.println("From getMaxValuesFromDict");
         HashMap<String, Integer> response = new HashMap<>();
         for(String key : dict.keySet()){
 
             if(dict.get(key) == maxValue){
-                System.out.println("key: " + key);
-                System.out.println("value: " + dict.get(key));
+//                System.out.println("key: " + key);
+//                System.out.println("value: " + dict.get(key));
                 response.put(key, maxValue);
             }
         }
@@ -65,7 +64,7 @@ public class FirstRatings {
         return CSVFormat.DEFAULT.parse(reader);
     }
 
-    private ArrayList<Movie> loadMovies(String fileName) throws IOException {
+    public ArrayList<Movie> loadMovies(String fileName) throws IOException {
         Iterable<CSVRecord> records = readCsv(fileName);
         for (CSVRecord record : records) {
 
@@ -123,7 +122,7 @@ public class FirstRatings {
         return movieInformation;
     }
 
-    private ArrayList<Rater> loadRaters(String fileName) throws IOException {
+    public ArrayList<Rater> loadRaters(String fileName) throws IOException {
         Iterable<CSVRecord> records = readCsv(fileName);
         for (CSVRecord record : records) {
             if (record.get(0).equals("rater_id")) {

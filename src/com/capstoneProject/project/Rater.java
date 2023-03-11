@@ -1,4 +1,4 @@
-package com.capstoneProject.step1;
+package com.capstoneProject.project;
 
 import java.util.*;
 
@@ -29,9 +29,9 @@ public class Rater {
         return myID;
     }
 
-    public double getRating(String item) {
+    public double getRating(String movieId) {
         for(int k=0; k < myRatings.size(); k++){
-            if (myRatings.get(k).getItem().equals(item)){
+            if (myRatings.get(k).getItem().equals(movieId)){
                 return myRatings.get(k).getValue();
             }
         }

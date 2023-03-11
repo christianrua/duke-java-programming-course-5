@@ -1,7 +1,4 @@
-package com.capstoneProject.step1;
-
-import java.util.ArrayList;
-import java.util.Arrays;
+package com.capstoneProject.project;
 
 public class Movie {
     private String id;
