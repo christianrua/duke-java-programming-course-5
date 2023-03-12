@@ -27,7 +27,7 @@ public class SecondRatings {
         return myRaters.size();
     }
 
-    private double getAverageByID(String movieId, int minimalRaters){
+    public double getAverageByID(String movieId, int minimalRaters){
         int numOfRaters = 0;
         double sumOfRatings = 0.0;
 

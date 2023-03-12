@@ -11,4 +11,6 @@ public class test {
         MovieRunnerAverage mra = new MovieRunnerAverage();
         mra.printAverageRatings();
     }
+
+
 }
