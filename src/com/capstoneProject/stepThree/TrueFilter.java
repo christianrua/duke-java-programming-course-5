@@ -1,0 +1,9 @@
+package com.capstoneProject.stepThree;
+
+public class TrueFilter implements Filter {
+    @Override
+    public boolean satisfies(String id) {
+        return true;
+    }
+
+}
