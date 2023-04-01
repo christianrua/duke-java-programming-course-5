@@ -1,8 +1,8 @@
-package com.capstoneProject.stepThree;
+package com.capstoneProject.stepFour;
 
 import java.io.IOException;
 
-public class DirectorsFilter implements Filter{
+public class DirectorsFilter implements Filter {
 
     private String myDirectors;
 

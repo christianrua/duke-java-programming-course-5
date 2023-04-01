@@ -1,4 +1,4 @@
-package com.capstoneProject.stepThree;
+package com.capstoneProject.stepFour;
 
 public class Movie {
     private String id;

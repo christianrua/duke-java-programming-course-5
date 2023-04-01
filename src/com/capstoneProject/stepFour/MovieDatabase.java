@@ -1,9 +1,8 @@
-package com.capstoneProject.stepThree;
+package com.capstoneProject.stepFour;
 
 import java.io.IOException;
-import java.util.*;
-import org.apache.commons.csv.*;
-import edu.duke.FileResource;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MovieDatabase {
     private static HashMap<String, Movie> ourMovies;
@@ -11,14 +10,14 @@ public class MovieDatabase {
 
     public static void initialize(String moviefile) throws IOException {
         if (ourMovies == null) {
-            ourMovies = new HashMap<String,Movie>();
+            ourMovies = new HashMap<String, Movie>();
             loadMovies(rootPath+ "/" + moviefile);
         }
     }
 
     private static void initialize() throws IOException {
         if (ourMovies == null) {
-            ourMovies = new HashMap<String,Movie>();
+            ourMovies = new HashMap<String, Movie>();
             loadMovies(rootPath+ "/ratedmoviesfull.csv");
         }
     }

@@ -1,4 +1,4 @@
-package com.capstoneProject.stepThree;
+package com.capstoneProject.stepFour;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -62,7 +62,7 @@ public class ThirdRatings {
         return avgRatings;
     }
 
-    public ArrayList<Rating> getAverageRatingsByFilter(int minimalRaters,Filter  filterCriteria) throws IOException {
+    public ArrayList<Rating> getAverageRatingsByFilter(int minimalRaters, Filter filterCriteria) throws IOException {
         ArrayList<Rating> avgRatings = new ArrayList<>();
         avgRatings =  buildAverageRatings(minimalRaters, MovieDatabase.filterBy(filterCriteria));
 

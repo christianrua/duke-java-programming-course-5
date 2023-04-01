@@ -1,4 +1,4 @@
-package com.capstoneProject.stepThree;
+package com.capstoneProject.stepFour;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,9 +20,10 @@ public class MovieRunnerWithFilters {
         if(envValue.equals("dev")){
             tr = new ThirdRatings("ratings_short.csv");
             MovieDatabase.initialize("ratedmovies_short.csv");
+        } else {
+            tr = new ThirdRatings("ratings.csv");
+            MovieDatabase.initialize("ratedmoviesfull.csv");
         }
-        tr = new ThirdRatings("ratings.csv");
-        MovieDatabase.initialize("ratedmoviesfull.csv");
     }
 
     private void sortRatingArray(ArrayList<Rating> avgRatingsList){
