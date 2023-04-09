@@ -73,4 +73,89 @@ public class MovieRunnerSimilarRatings {
         }
 
     }
+
+    public void printSimilarRatings() throws IOException {
+        printMoviesGeneralStatistics();
+        ArrayList<Rating> response = fr.getSimilarRatings("71",20,minimalRatings);
+        System.out.println("The recommended movies are: ");
+        for(Rating rating : response){
+            String movieName = MovieDatabase.getTitle(rating.getItem());
+            double movieRating = rating.getValue();
+            System.out.println("movie " + movieName + " has a rating of " + movieRating);
+        }
+    }
+
+    public void printSimilarRatingsByGenre() throws IOException {
+        printMoviesGeneralStatistics();
+        ArrayList<Rating> response = fr.getSimilarRatingsByFilter("964",20,minimalRatings,new GenreFilter("Mystery"));
+        System.out.println("The recommended movies are: ");
+        for(Rating rating : response){
+            String movieName = MovieDatabase.getTitle(rating.getItem());
+            double movieRating = rating.getValue();
+            String genres = MovieDatabase.getGenres(rating.getItem());
+            System.out.println("movie " + movieName + " has a rating of " + movieRating);
+            System.out.println("movie genres " + genres);
+            System.out.println(" ");
+        }
+    }
+
+    public void printSimilarRatingsByDirector() throws IOException {
+        printMoviesGeneralStatistics();
+        String directorsString = "Clint Eastwood,J.J. Abrams,Alfred Hitchcock,Sydney Pollack,David Cronenberg,Oliver Stone,Mike Leigh";
+        ArrayList<Rating> response = fr.getSimilarRatingsByFilter("120",10,minimalRatings,new DirectorsFilter(directorsString));
+        System.out.println("The recommended movies are: ");
+        for(Rating rating : response){
+            String movieId = rating.getItem();
+            String movieName = MovieDatabase.getTitle(movieId);
+            double movieRating = rating.getValue();
+            String directors = MovieDatabase.getDirector(movieId);
+            System.out.println("movie " + movieName + " has a rating of " + movieRating);
+            System.out.println("movie directors " + directors);
+            System.out.println(" ");
+        }
+    }
+
+    public void printSimilarRatingsByGenreAndMinutes() throws IOException {
+        printMoviesGeneralStatistics();
+        GenreFilter genreFilter = new GenreFilter("Drama");
+        MinutesFilter minutesFilter = new MinutesFilter(80,160);
+        AllFilters combineFilters = new AllFilters();
+        combineFilters.addFilter(genreFilter);
+        combineFilters.addFilter(minutesFilter);
+        ArrayList<Rating> response = fr.getSimilarRatingsByFilter("168",10,minimalRatings,combineFilters);
+        System.out.println("The recommended movies are: ");
+        for(Rating rating : response){
+            String movieId = rating.getItem();
+            String movieName = MovieDatabase.getTitle(movieId);
+            double movieRating = rating.getValue();
+            int movieMinutes = MovieDatabase.getMinutes(movieId);
+            String genres = MovieDatabase.getGenres(movieId);
+            String directors = MovieDatabase.getDirector(movieId);
+            System.out.println("movie " + movieName + " has a rating of " + movieRating);
+            System.out.println("movie genres " + genres + " movie duration in minutes " + movieMinutes);
+            System.out.println(" ");
+        }
+    }
+
+    public void printSimilarRatingsByYearAfterAndMinutes() throws IOException {
+        printMoviesGeneralStatistics();
+        YearAfterFilter yaf = new YearAfterFilter(1975);
+        MinutesFilter minutesFilter = new MinutesFilter(70,200);
+        AllFilters combineFilters = new AllFilters();
+        combineFilters.addFilter(yaf);
+        combineFilters.addFilter(minutesFilter);
+        ArrayList<Rating> response = fr.getSimilarRatingsByFilter("314",10,minimalRatings,combineFilters);
+        System.out.println("The recommended movies are: ");
+        for(Rating rating : response){
+            String movieId = rating.getItem();
+            String movieName = MovieDatabase.getTitle(movieId);
+            double movieRating = rating.getValue();
+            int movieMinutes = MovieDatabase.getMinutes(movieId);
+            int year = MovieDatabase.getYear(movieId);
+            String directors = MovieDatabase.getDirector(movieId);
+            System.out.println("movie " + movieName + " has a rating of " + movieRating);
+            System.out.println("movie year " + year + " movie duration in minutes " + movieMinutes);
+            System.out.println(" ");
+        }
+    }
 }
