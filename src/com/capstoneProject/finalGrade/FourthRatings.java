@@ -1,11 +1,8 @@
-package com.capstoneProject.stepFour;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-
-import java.util.Set;
 
 
 //https://github.com/SABERGLOW/Java_Programming_Build_A_Recommendation_System
